@@ -42,7 +42,7 @@ public class ValidateDurationChoice {
         return result;
     }
 
-    public static int getRemainingDailyWorkTime(int totalWorkTimeForToday) {
+    private static int getRemainingDailyWorkTime(int totalWorkTimeForToday) {
         return 721-totalWorkTimeForToday;
     }
 
@@ -60,10 +60,11 @@ public class ValidateDurationChoice {
         return totalWorkTimeForToday;
     }
 
+
     public static int validateDuration(String accountName, ArrayList<Client> clientsList, int clientIndex) {
         LocalDate today = LocalDate.now();
         String date = today.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        int result = -1;
+        int result;
 
         System.out.println("Enter the amount of time spend today working on " + clientsList.get(clientIndex).getClientName() + "'s project - \"" + clientsList.get(clientIndex).getProjectName() + "\"");
         System.out.print("Duration in minutes - > ");

@@ -17,7 +17,7 @@ class ValidateProtocolTest {
     @Test
     void checkIfDailyProtocolExistsTrue() {
         ArrayList<Protocol> todayProtocols=new ArrayList<>();
-        todayProtocols.add(new Protocol("test","CONFIGURE NEW PHONE CENTRAL","31.12.2022",20, "31.12.2023"));
+        todayProtocols.add(new Protocol(new Client("test","CONFIGURE NEW PHONE CENTRAL","31.12.2022"),20, "31.12.2023"));
         HashMap<String, ArrayList<Protocol>> employeeDailyProtocols = new HashMap<>();
         employeeDailyProtocols.put("31.12.2022", todayProtocols);
         assertTrue(checkIfDailyProtocolExists("31.12.2022", employeeDailyProtocols));
@@ -26,7 +26,7 @@ class ValidateProtocolTest {
     @Test
     void checkIfDailyProtocolExistsFalse() {
         ArrayList<Protocol> todayProtocols = new ArrayList<>();
-        todayProtocols.add(new Protocol("test", "CONFIGURE NEW PHONE CENTRAL", "31.12.2022", 20, "31.12.2023"));
+        todayProtocols.add(new Protocol(new Client("test","CONFIGURE NEW PHONE CENTRAL","31.12.2022"),20, "31.12.2023"));
         HashMap<String, ArrayList<Protocol>> employeeDailyProtocols = new HashMap<>();
         employeeDailyProtocols.put("31.12.2022", todayProtocols);
         assertFalse(checkIfDailyProtocolExists("01.12.2022", employeeDailyProtocols));
@@ -44,7 +44,7 @@ class ValidateProtocolTest {
     void checkIfProjectRecordExistsTrue() {
         ArrayList<Client> clientsList = Load.clientListFromFile();
         ArrayList<Protocol> todayProtocols = new ArrayList<>();
-        todayProtocols.add(new Protocol("test", "CONFIGURE NEW PHONE CENTRAL", "31.12.2022", 20, "31.12.2023"));
+        todayProtocols.add(new Protocol(new Client("test","CONFIGURE NEW PHONE CENTRAL","31.12.2022"),20, "31.12.2023"));
         int clientIndex = 0;
         assertEquals(0, checkIfProjectRecordExists(clientsList, todayProtocols, clientIndex));
     }

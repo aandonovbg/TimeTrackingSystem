@@ -1,5 +1,7 @@
-package menus;
+package services.menus;
 
+import menus.EmployeeMenu;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -7,7 +9,7 @@ import java.io.InputStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AdminMenuTest {
+class EmployeeMenuTest {
 
     @Test
     void getUserChoiceTakeUserInput() {
@@ -15,7 +17,6 @@ class AdminMenuTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertEquals("5", AdminMenu.getUserChoice());
+        Assertions.assertEquals("5", EmployeeMenu.getUserChoice("Test"));
     }
-
 }

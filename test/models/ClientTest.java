@@ -2,6 +2,9 @@ package models;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+
+import static models.Client.getChosenClientIndex;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ClientTest {
@@ -17,8 +20,12 @@ class ClientTest {
     }
 
     @Test
-    void getChosenClientIndex() {
-
+    void getChosenClientIndexReturnChoice() {
+        String input = "3";
+        int value=Integer.valueOf(input);
+        ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        assertEquals(value-1,getChosenClientIndex());
     }
 
 }

@@ -1,5 +1,7 @@
-package menus;
+package services.menus;
 
+import menus.StatisticsMenu;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import services.Statistics;
 
@@ -16,7 +18,7 @@ class StatisticsMenuTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertEquals("5", StatisticsMenu.getUserChoice());
+        Assertions.assertEquals("5", StatisticsMenu.getUserChoice());
     }
 
     @Test

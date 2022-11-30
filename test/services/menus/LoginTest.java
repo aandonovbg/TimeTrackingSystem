@@ -1,5 +1,7 @@
-package menus;
+package services.menus;
 
+import menus.Login;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -15,7 +17,7 @@ class LoginTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertEquals("5", Login.getUserChoiceAdmin());
+        Assertions.assertEquals("5", Login.getUserChoiceAdmin());
     }
 
     @Test
